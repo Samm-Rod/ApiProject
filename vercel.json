@@ -6,6 +6,9 @@
       "use": "@vercel/node"
     }
   ],
+  "script": {
+    "vercel-build": "npx prisma migrate deploy"
+  },
   "routes": [
     {
       "src": "/(.*)",
