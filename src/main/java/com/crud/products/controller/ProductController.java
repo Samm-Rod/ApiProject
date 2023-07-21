@@ -1,4 +1,4 @@
-package com.crud.products;
+package com.crud.products.controller;
 
 import com.crud.products.entities.Products;
 import com.crud.products.reposotories.ProductsRepositories;
@@ -8,33 +8,32 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/prods")
 public class ProductController {
-
-
     @Autowired
     private ProductsService pServ;
 
-    @PostMapping("/prods")
+    @PostMapping("/create")
     public ResponseEntity<?> insertProduct(@RequestBody Products obj){
         return pServ.register(obj);
     }
 
-    @GetMapping("/prods")
+    @GetMapping("/lists")
     public ResponseEntity<?> listProducts(){
         return pServ.listProduct();
     }
 
-    @GetMapping("/prods/{id}")
+    @GetMapping("/list/{id}")
     public ResponseEntity<?> searchProducts(@PathVariable int id){
         return pServ.searchProduct(id);
     }
 
-    @PutMapping("/prods")
+    @PutMapping("/update")
     public ResponseEntity<?> updateProducts(@RequestBody Products obj){
         return pServ.updates(obj);
     }
 
-    @DeleteMapping("/prods/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> removeProducts(@PathVariable int id){
         return pServ.remove(id);
     }

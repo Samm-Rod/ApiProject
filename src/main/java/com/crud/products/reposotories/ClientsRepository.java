@@ -1,6 +1,6 @@
 package com.crud.products.reposotories;
 
-import com.crud.products.entities.Products;
+import com.crud.products.entities.Clients;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProductsRepositories extends JpaRepository<Products, Long> {
+public interface ClientsRepository extends JpaRepository<Clients, Long> {
 
-    List<Products> findAll();
-    Products findById(int id);
-    @Query(value = "")
+    List<Clients> findAll();
+    Clients findById(long id);
+    @Query("")
     long countById(long id);
 }
