@@ -9,18 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+// New Class Itens
 @RestController
 @RequestMapping("/itens")
 public class ItensController {
-
     @Autowired
     private ItensService itensService;
-
     @PostMapping("/create")
     public ResponseEntity<?> createClients(@RequestBody Itens obj){
         return itensService.createItens(obj);
     }
-
     @GetMapping("/list")
     public ResponseEntity<?> listItem(){
         return itensService.listItens();
